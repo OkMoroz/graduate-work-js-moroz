@@ -1,0 +1,20 @@
+{
+  "short_name": "Rozetka Admin Panel",
+  "name": "Create React App Sample",
+  "icons": [
+    {
+      "src": "logo.png",
+      "type": "image/png",
+      "sizes": "240x40"
+    },
+    {
+      "src": "eye.svg",
+      "type": "image/svg",
+      "sizes": "34x23"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}
