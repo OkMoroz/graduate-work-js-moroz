@@ -8,7 +8,8 @@ const Card = () => {
   return (
     <div className="card">
       <img src={logo} alt="logo" />
-      <Input />
+      <Input type="text" placeholder="User Name" />
+      <Input type="password" placeholder="Password" />
       <Button />
     </div>
   );

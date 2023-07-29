@@ -1,11 +1,10 @@
 import React from "react";
 import "./style.css";
 
-const Input = () => {
+const Input = ({ type, placeholder }) => {
   return (
-    <div>
-      <input className="input" type="text" placeholder="User Name" />
-      <input className="input" type="password" placeholder="Password" />
+    <div className="input-container">
+      <input type={type} className="input" placeholder={placeholder} />
     </div>
   );
 };
