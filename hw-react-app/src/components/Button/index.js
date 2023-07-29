@@ -4,7 +4,9 @@ import "./style.css";
 const Button = () => {
   return (
     <div>
-      <button className='btn' type="submit">Login</button>
+      <button className="btn" type="submit">
+        Login
+      </button>
     </div>
   );
 };
