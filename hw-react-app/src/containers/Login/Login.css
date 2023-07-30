@@ -1,0 +1,21 @@
+@font-face {
+  font-family: "Inter";
+  src: url("../../assets/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: normal;
+  font-style: normal;
+}
+body {
+  background-color: #44b26f;
+  margin: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+.login-container {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
+}
