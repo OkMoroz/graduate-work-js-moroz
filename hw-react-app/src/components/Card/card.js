@@ -1,8 +1,8 @@
 import React from "react";
-import "./style.css";
+import "./card.css";
 import logo from "../../assets/image/logo.png";
-import Input from "../Input";
-import Button from "../Button";
+import Input from "../Input/input";
+import Button from "../Button/button";
 
 const Card = () => {
   return (

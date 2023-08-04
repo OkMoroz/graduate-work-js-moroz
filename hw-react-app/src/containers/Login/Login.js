@@ -1,5 +1,5 @@
 import "./Login.css";
-import Card from "../../components/Card/index";
+import Card from "../../components/Card/card";
 
 function Login() {
   return (
