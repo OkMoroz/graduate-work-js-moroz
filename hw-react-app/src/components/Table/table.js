@@ -4,6 +4,30 @@ import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { TbArchiveFilled } from "react-icons/tb";
 
+const products = [
+  {
+    id: 1,
+    category: "Комп'ютер",
+    name: "Lenovo Y50-70",
+    quantity: 5,
+    price: 25000.0,
+  },
+  {
+    id: 2,
+    category: "Одяг",
+    name: "Nike M Nk Df Acd21",
+    quantity: 22,
+    price: 4000.0,
+  },
+  {
+    id: 3,
+    category: "Сантехніка",
+    name: "CERSANIT MITO 17",
+    quantity: 1337,
+    price: 5000.0,
+  },
+];
+
 const Table = () => {
   return (
     <div className="tableContainer">
@@ -14,54 +38,71 @@ const Table = () => {
               ID {<BsArrowDownUp className="arrowIcon" />}
             </th>
             <th className="tableName">
-              Category {<BsArrowDownUp className="arrowIcon" />}
+              Категорія {<BsArrowDownUp className="arrowIcon" />}
             </th>
             <th className="tableName">
-              Name {<BsArrowDownUp className="arrowIcon" />}
+              Назва {<BsArrowDownUp className="arrowIcon" />}
             </th>
             <th className="tableName">
-              Quantity {<BsArrowDownUp className="arrowIcon" />}
+              Кількість {<BsArrowDownUp className="arrowIcon" />}
             </th>
             <th className="tableName">
-              Price (₴) {<BsArrowDownUp className="arrowIcon" />}
+              Ціна (₴) {<BsArrowDownUp className="arrowIcon" />}
             </th>
             <th className="tableName"></th>
           </tr>
         </thead>
         <tbody>
-          <tr className="greyRow">
-            <td className="tableGreyRow">0</td>
-            <td className="tableGreyRow">PC</td>
-            <td className="tableGreyRow">Lenovo Y50-70</td>
-            <td className="tableGreyRow">5</td>
-            <td className="tableGreyRow">25,000.00</td>
-            <td className="tableGreyRow">
-              <BsFillPencilFill className="icons" />
-              <TbArchiveFilled className="icons" />
-            </td>
-          </tr>
-          <tr className="greenRow">
-            <td className="tableGreenRow">1</td>
-            <td className="tableGreenRow">Clothes</td>
-            <td className="tableGreenRow">Nike M Nk Df Acd21</td>
-            <td className="tableGreenRow">22</td>
-            <td className="tableGreenRow">4,000.00</td>
-            <td className="tableGreenRow">
-              <BsFillPencilFill className="icons" />
-              <TbArchiveFilled className="icons" />
-            </td>
-          </tr>
-          <tr className="greyRow">
-            <td className="tableGreyRow">2</td>
-            <td className="tableGreyRow">Plumbing</td>
-            <td className="tableGreyRow">CERSANIT MITO 17</td>
-            <td className="tableGreyRow">1337</td>
-            <td className="tableGreyRow">5,000.00</td>
-            <td className="tableGreyRow">
-              <BsFillPencilFill className="icons" />
-              <TbArchiveFilled className="icons" />
-            </td>
-          </tr>
+          {products.map((product) => (
+            <tr
+              key={product.id}
+              className={product.id % 2 === 0 ? "greenRow" : "greyRow"}
+            >
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                }
+              >
+                {product.id}
+              </td>
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                }
+              >
+                {product.category}
+              </td>
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                }
+              >
+                {product.name}
+              </td>
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                }
+              >
+                {product.quantity}
+              </td>
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                }
+              >
+                {product.price}
+              </td>
+              <td
+                className={
+                  product.id % 2 === 0 ? "tableGreyRow" : "tableGreenRow"
+                }
+              >
+                <BsFillPencilFill className="icons" />
+                <TbArchiveFilled className="icons" />
+              </td>
+            </tr>
+          ))}
         </tbody>
       </table>
     </div>
