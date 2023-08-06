@@ -1,0 +1,33 @@
+.productsContainer {
+  display: flex;
+  flex-direction: column;
+  margin: 20px;
+}
+
+.logo {
+  width: 240px;
+  height: 40px;
+  margin: 0 0 31px 9px;
+}
+
+.btnContainer {
+  display: flex;
+  justify-content: space-between;
+  margin: 0 70px 5px 70px;
+}
+
+.btnIcon {
+  width: 35px;
+  height: 35px;
+  color: #000;
+  margin: 14px 14px 13px 10px;
+}
+
+.title {
+  color: #fff;
+  font-family: Inter;
+  font-size: 64px;
+  font-style: normal;
+  font-weight: 700;
+  text-align: center;
+}
