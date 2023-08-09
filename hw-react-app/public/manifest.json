@@ -8,9 +8,9 @@
       "sizes": "240x40"
     },
     {
-      "src": "eye.svg",
-      "type": "image/svg",
-      "sizes": "34x23"
+      "src": "logo2.png",
+      "type": "image/png",
+      "sizes": "240x40"
     }
   ],
   "start_url": ".",

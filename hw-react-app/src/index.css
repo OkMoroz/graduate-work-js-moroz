@@ -8,6 +8,9 @@ body {
   margin: 0;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-    background-color: #44b26f;
-  margin: 0;
+  background-color: #44b26f;
+}
+
+.input:focus {
+  outline: none;
 }
