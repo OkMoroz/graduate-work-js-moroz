@@ -1,7 +1,7 @@
 import React from "react";
 import "./ProductsPreview.css";
 import logo from "../../assets/image/logo2.png";
-import ProductsCard from "../../components/ProductsCard/ProductsCard";
+import ProductCard from "../../components/ProductsCard/ProductCard";
 import productImage from "../../assets/image/product.jpg";
 
 function ProductsPreview() {
@@ -57,9 +57,13 @@ function ProductsPreview() {
   ];
 
   return (
-    <div className="PreviewContainer">
+    <div className="previewContainer">
       <img src={logo} alt="logo2" className="logo" />
-        <ProductsCard products={productItems} />
+      <div className="container">
+        {productItems.map((p) => (
+          <ProductCard product={p} />
+        ))}
+      </div>
     </div>
   );
 }
