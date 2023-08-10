@@ -2,8 +2,8 @@ import "./ProductsTable.css";
 import logo from "../../assets/image/logo2.png";
 import { BsPerson } from "react-icons/bs";
 import { PiPlusBold } from "react-icons/pi";
-import ButtonProducts from "../../components/ButtonProducts/buttonProducts";
-import Table from "../../components/Table/table";
+import ButtonProducts from "../../components/ButtonProducts/ButtonProducts";
+import Table from "../../components/Table/Table";
 
 const ProductsTable = () => {
   return (

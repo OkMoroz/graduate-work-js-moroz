@@ -1,10 +1,13 @@
 import React from "react";
-import "./input.css";
+import "./Input.css";
 
 const Input = ({ type, placeholder }) => {
   return (
     <div className="inputContainer">
-      <input type={type} className="input" placeholder={placeholder} />
+      <input
+        type={type}
+        className="input"
+        placeholder={placeholder} />
     </div>
   );
 };

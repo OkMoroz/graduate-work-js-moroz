@@ -11,12 +11,6 @@
   align-items: center;
 }
 
-.input:hover {
-  background-color: #bcb9b9f3;
-  transition: background-color 0.3s, color 0.3s, border 0.3s;
-  border-color: #44b26f;
-}
-
 input::placeholder {
   color: #44b26f;
   font-family: "Inter", sans-serif;
@@ -26,7 +20,5 @@ input::placeholder {
   line-height: normal;
   text-indent: 18px;
 }
-.input:focus {
-  outline: none;
-  background-color: #e0dddd;
-}
+
+

@@ -1,5 +1,5 @@
 import React from "react";
-import "./table.css";
+import "./Table.css";
 import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { TbArchiveFilled } from "react-icons/tb";
