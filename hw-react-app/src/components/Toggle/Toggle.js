@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "../Input/Input";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
-const Toggle = ({ password, setPassword, errorMessage }) => {
+const Toggle = ({ password, setPassword, isErrorInPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -18,6 +18,9 @@ const Toggle = ({ password, setPassword, errorMessage }) => {
         value={password}
         onChange={(event) => setPassword(event.target.value)}
       />
+      {isErrorInPassword && (
+        <div className="errorMessage">Please enter password</div>
+      )}
       <div className="eyeIcon">
         {showPassword ? (
           <IoMdEyeOff
