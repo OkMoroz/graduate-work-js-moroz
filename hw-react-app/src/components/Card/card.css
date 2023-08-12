@@ -36,3 +36,6 @@
   width: 34px;
   height: 24px;
 }
+.errorMessage{
+  color: red;
+}
