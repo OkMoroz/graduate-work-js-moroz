@@ -1,12 +1,13 @@
 import React from "react";
 import "./Input.css";
 
-const Input = ({ type, placeholder, value, name, onChange }) => {
+const Input = ({ type, placeholder, value, name, onChange, isError }) => {
+  const inputClassName = isError ? "input error" : "input";
   return (
     <div className="inputContainer">
       <input
         type={type}
-        className="input"
+        className={inputClassName}
         placeholder={placeholder}
         value={value}
         name={name}

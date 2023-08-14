@@ -24,9 +24,6 @@ const Card = () => {
       setPassword(value);
       setIsErrorInPassword(false);
     }
-
-    console.log("Username:", username);
-    console.log("Password:", password);
   };
 
   const sendRequest = (event) => {
@@ -61,6 +58,7 @@ const Card = () => {
           value={username}
           name="username"
           onChange={handleChange}
+          isError={isErrorInLogin}
         />
 
         {isErrorInLogin && (

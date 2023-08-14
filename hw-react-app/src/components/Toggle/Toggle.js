@@ -18,6 +18,7 @@ const Toggle = ({ password, handleChange, isErrorInPassword }) => {
         value={password}
         name="password"
         onChange={handleChange}
+        isError={isErrorInPassword}
       />
       {isErrorInPassword && (
         <div className="errorMessage">Please enter password</div>
