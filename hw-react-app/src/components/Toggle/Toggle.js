@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Input from "../Input/Input";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
-const Toggle = ({ password, setPassword, isErrorInPassword }) => {
+const Toggle = ({ password, handleChange, isErrorInPassword }) => {
   const [showPassword, setShowPassword] = useState(false);
 
   const togglePasswordVisibility = () => {
@@ -16,7 +16,8 @@ const Toggle = ({ password, setPassword, isErrorInPassword }) => {
         placeholder="Password"
         className="passwordField"
         value={password}
-        onChange={(event) => setPassword(event.target.value)}
+        name="password"
+        onChange={handleChange}
       />
       {isErrorInPassword && (
         <div className="errorMessage">Please enter password</div>
