@@ -3,7 +3,7 @@ import "./ButtonProducts.css";
 
 const ButtonProducts = ({ icon, text }) => {
   return (
-    <button className="btnProd" type="submit">
+    <button className="btn-prod" type="submit">
       {icon}
       {text}
     </button>

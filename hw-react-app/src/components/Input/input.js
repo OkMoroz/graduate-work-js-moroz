@@ -1,13 +1,18 @@
 import React from "react";
 import "./Input.css";
 
-const Input = ({ type, placeholder }) => {
+const Input = ({ type, placeholder, value, name, onChange, isError }) => {
+  const inputClassName = isError ? "input error" : "input";
   return (
-    <div className="inputContainer">
+    <div className="input-container">
       <input
         type={type}
-        className="input"
-        placeholder={placeholder} />
+        className={inputClassName}
+        placeholder={placeholder}
+        value={value}
+        name={name}
+        onChange={onChange}
+      />
     </div>
   );
 };

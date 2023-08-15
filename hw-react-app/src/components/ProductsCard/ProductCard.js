@@ -4,9 +4,9 @@ import cart from "../../assets/image/cart.svg";
 
 const ProductCard = ({ product }) => {
   return (
-      <div className="productCard" key={product.id}>
-        <img src={product.product} alt="product" className="imgProduct" />
-        <h2 className="titleProduct">{product.name}</h2>
+      <div className="product-card" key={product.id}>
+        <img src={product.product} alt="product" className="img-product" />
+        <h2 className="title-product">{product.name}</h2>
         <div className="cost">
           <span className="price">
             {product.price}
@@ -15,7 +15,7 @@ const ProductCard = ({ product }) => {
           <span className="quantity">{product.quantity}</span>
         </div>
         <div className="buy">
-          <img src={cart} alt="cart" className="cartProduct " />
+          <img src={cart} alt="cart" className="cart-product-img " />
           <span className="send">{product.send}</span>
         </div>
     </div>
