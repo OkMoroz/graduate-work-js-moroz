@@ -1,34 +1,29 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import "./Table.css";
 import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { TbArchiveFilled } from "react-icons/tb";
 
-const products = [
-  {
-    id: 1,
-    category: "Комп'ютер",
-    name: "Lenovo Y50-70",
-    quantity: 5,
-    price: 25000.0,
-  },
-  {
-    id: 2,
-    category: "Одяг",
-    name: "Nike M Nk Df Acd21",
-    quantity: 22,
-    price: 4000.0,
-  },
-  {
-    id: 3,
-    category: "Сантехніка",
-    name: "CERSANIT MITO 17",
-    quantity: 1337,
-    price: 5000.0,
-  },
-];
 
 const Table = () => {
+  const [products, setProducts] = useState([]);
+ 
+   useEffect(() => {
+     fetchProducts();
+   }, []);
+  
+   const fetchProducts = async () => {
+     try {
+       const response = await fetch(
+         "https://64db4a40593f57e435b0bcab.mockapi.io/products"
+       );
+       const data = await response.json();
+       setProducts(data);
+     } catch (error) {
+       console.error("Error while fetching products:", error);
+     }
+   };
+
   return (
     <div className="table-сontainer">
       <table className="table">
@@ -38,16 +33,16 @@ const Table = () => {
               ID {<BsArrowDownUp className="arrow-icon" />}
             </th>
             <th className="table-name">
-              Категорія {<BsArrowDownUp className="arrow-icon" />}
+              Category {<BsArrowDownUp className="arrow-icon" />}
             </th>
             <th className="table-name">
-              Назва {<BsArrowDownUp className="arrow-icon" />}
+              Name {<BsArrowDownUp className="arrow-icon" />}
             </th>
             <th className="table-name">
-              Кількість {<BsArrowDownUp className="arrow-icon" />}
+              Quantity {<BsArrowDownUp className="arrow-icon" />}
             </th>
             <th className="table-name">
-              Ціна (₴) {<BsArrowDownUp className="arrow-icon" />}
+              Price (₴) {<BsArrowDownUp className="arrow-icon" />}
             </th>
             <th className="table-name"></th>
           </tr>
