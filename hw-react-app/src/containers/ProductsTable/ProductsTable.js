@@ -7,15 +7,15 @@ import Table from "../../components/Table/Table";
 
 const ProductsTable = () => {
   return (
-    <div className="productsContainer">
+    <div className="products-container">
       <img src={logo} alt="logo2" className="logo" />
-      <div className="btnContainer">
+      <div className="btn-container">
         <ButtonProducts
-          icon={<BsPerson className="btnIcon" />}
+          icon={<BsPerson className="btn-icon" />}
           text="Preview"
         />
         <ButtonProducts
-          icon={<PiPlusBold className="btnIcon" />}
+          icon={<PiPlusBold className="btn-icon" />}
           text="Add product"
         />
       </div>

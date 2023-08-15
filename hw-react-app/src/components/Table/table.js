@@ -30,72 +30,72 @@ const products = [
 
 const Table = () => {
   return (
-    <div className="tableContainer">
+    <div className="table-сontainer">
       <table className="table">
-        <thead className="tableHeader">
+        <thead className="table-header">
           <tr>
-            <th className="tableName">
-              ID {<BsArrowDownUp className="arrowIcon" />}
+            <th className="table-name">
+              ID {<BsArrowDownUp className="arrow-icon" />}
             </th>
-            <th className="tableName">
-              Категорія {<BsArrowDownUp className="arrowIcon" />}
+            <th className="table-name">
+              Категорія {<BsArrowDownUp className="arrow-icon" />}
             </th>
-            <th className="tableName">
-              Назва {<BsArrowDownUp className="arrowIcon" />}
+            <th className="table-name">
+              Назва {<BsArrowDownUp className="arrow-icon" />}
             </th>
-            <th className="tableName">
-              Кількість {<BsArrowDownUp className="arrowIcon" />}
+            <th className="table-name">
+              Кількість {<BsArrowDownUp className="arrow-icon" />}
             </th>
-            <th className="tableName">
-              Ціна (₴) {<BsArrowDownUp className="arrowIcon" />}
+            <th className="table-name">
+              Ціна (₴) {<BsArrowDownUp className="arrow-icon" />}
             </th>
-            <th className="tableName"></th>
+            <th className="table-name"></th>
           </tr>
         </thead>
         <tbody>
           {products.map((product) => (
             <tr
               key={product.id}
-              className={product.id % 2 === 0 ? "greenRow" : "greyRow"}
+              className={product.id % 2 === 0 ? "green-row" : "grey-row"}
             >
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.id}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.category}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.name}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.quantity}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreenRow" : "tableGreyRow"
+                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.price}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "tableGreyRow" : "tableGreenRow"
+                  product.id % 2 === 0 ? "table-grey-row" : "table-green-row"
                 }
               >
                 <BsFillPencilFill className="icons" />

@@ -1,4 +1,4 @@
-.productsContainer {
+.products-container {
   display: flex;
   flex-direction: column;
   margin: 20px;
@@ -10,13 +10,13 @@
   margin: 0 0 31px 9px;
 }
 
-.btnContainer {
+.btn-container {
   display: flex;
   justify-content: space-between;
   margin: 0 70px 5px 70px;
 }
 
-.btnIcon {
+.btn-icon {
   width: 35px;
   height: 35px;
   color: #000;

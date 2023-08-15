@@ -10,11 +10,11 @@ const Toggle = ({ password, handleChange, isErrorInPassword }) => {
   };
 
   return (
-    <div className="passwordInput">
+    <div className="password-input">
       <Input
         type={showPassword ? "text" : "password"}
         placeholder="Password"
-        className="passwordField"
+        className="password-field"
         value={password}
         name="password"
         onChange={handleChange}
@@ -23,14 +23,14 @@ const Toggle = ({ password, handleChange, isErrorInPassword }) => {
       {isErrorInPassword && (
         <div className="errorMessage">Please enter password</div>
       )}
-      <div className="eyeIcon">
+      <div className="eye-icon">
         {showPassword ? (
           <IoMdEyeOff
             onClick={togglePasswordVisibility}
-            className="eyeIconClosed"
+            className="eye-icon-closed"
           />
         ) : (
-          <IoMdEye onClick={togglePasswordVisibility} className="eyeIconOpen" />
+          <IoMdEye onClick={togglePasswordVisibility} className="eye-icon-open" />
         )}
       </div>
     </div>

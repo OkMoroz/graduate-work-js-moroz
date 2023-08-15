@@ -1,4 +1,4 @@
-.btnProd {
+.btn-prod {
   width: 179px;
   height: 52px;
   background-color: #fff;
@@ -12,12 +12,12 @@
   align-items: center;
 }
 
-.btnProd:hover {
+.btn-prod:hover {
   background-color: #0a943fec;
   color: #fff;
   transition: background-color 0.3s, color 0.3s, border 0.3s;
 }
-.btnProd:active {
+.btn-prod:active {
   background-color: #f7f9f8;
 }
 

@@ -1,4 +1,4 @@
-.productCard {
+.product-card {
   width: 233px;
   height: 321px;
   background-color: #ffffff;
@@ -9,18 +9,18 @@
   cursor: pointer;
 }
 
-.imgProduct {
+.img-product {
   width: 209px;
   height: 139px;
   margin-bottom: 12px;
 }
 
-.imgProduct:hover {
+.img-product:hover {
   transform: scale(1.1);
   transition: transform 0.6s;
 }
 
-.titleProduct {
+.title-product {
   color: #000;
   text-align: center;
   font-size: 16px;
@@ -60,13 +60,13 @@
   font-weight: 500;
 }
 
-.cartProduct {
+.cart-product-img {
   width: 35px;
   height: 28px;
   margin-right: 8px;
 }
 
-.cartProduct:hover {
+.cart-product-img:hover {
   transform: scale(1.2);
   transition: transform 0.6s;
 }

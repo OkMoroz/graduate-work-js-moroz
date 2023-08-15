@@ -62,7 +62,7 @@ const Card = () => {
         />
 
         {isErrorInLogin && (
-          <div className="errorMessage">Please enter login</div>
+          <div className="error-message">Please enter login</div>
         )}
         <Toggle
           password={password}
@@ -72,7 +72,7 @@ const Card = () => {
       </label>
       <Button onClick={sendRequest} />
       {isErrorMessage && (
-        <div className="errorMessage">Login or password is not valid</div>
+        <div className="error-message">Login or password is not valid</div>
       )}
     </div>
   );

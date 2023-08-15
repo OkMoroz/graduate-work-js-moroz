@@ -10,7 +10,7 @@ function ProductsPreview() {
       id: 1,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
@@ -18,7 +18,7 @@ function ProductsPreview() {
       id: 2,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
@@ -26,7 +26,7 @@ function ProductsPreview() {
       id: 3,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
@@ -34,7 +34,7 @@ function ProductsPreview() {
       id: 4,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
@@ -42,7 +42,7 @@ function ProductsPreview() {
       id: 5,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000₴",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
@@ -50,14 +50,14 @@ function ProductsPreview() {
       id: 6,
       product: productImage,
       name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "$25000",
+      price: "25000",
       quantity: "Кількість: 5",
       send: "Готовий до відправки",
     },
   ];
 
   return (
-    <div className="previewContainer">
+    <div className="preview-container">
       <img src={logo} alt="logo2" className="logo" />
       <div className="container">
         {productItems.map((p) => (

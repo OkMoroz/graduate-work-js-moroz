@@ -14,15 +14,15 @@
   margin-bottom: 39px;
 }
 
-.passwordInput {
+.password-input {
   position: relative;
 }
 
-.passwordField {
+.password-field {
   padding-right: 40px;
 }
 
-.eyeIcon {
+.eye-icon {
   transform: translateY(-50%);
   color: #44b26f;
   position: absolute;
@@ -31,11 +31,11 @@
   cursor: pointer;
 }
 
-.eyeIconOpen,
-.eyeIconClosed {
+.eye-icon-open,
+.eye-icon-closed {
   width: 34px;
   height: 24px;
 }
-.errorMessage{
+.error-message{
   color: red;
 }
