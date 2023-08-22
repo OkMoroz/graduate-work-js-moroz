@@ -1,17 +1,10 @@
 import React from "react";
 import "./ProductsPreview.css";
-import logo from "../../assets/image/logo2.png";
+import ClickLogo from "../../components/ClickLogo/ClickLogo";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import productImage from "../../assets/image/product.jpg";
-import { useNavigate } from "react-router-dom";
 
 const ProductsPreview = () => {
-  const navigate = useNavigate();
-
-  const handleLogoClick = () => {
-    navigate("/login");
-  };
-
   const productItems = [
     {
       id: 1,
@@ -65,7 +58,7 @@ const ProductsPreview = () => {
 
   return (
     <div className="preview-container">
-      <img src={logo} alt="logo2" className="logo" onClick={handleLogoClick} />
+      <ClickLogo to="/products-preview" />
       <div className="container">
         {productItems.map((p) => (
           <ProductCard product={p} />
