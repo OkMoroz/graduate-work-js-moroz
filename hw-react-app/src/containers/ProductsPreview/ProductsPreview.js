@@ -1,6 +1,6 @@
 import React from "react";
 import "./ProductsPreview.css";
-import ClickLogo from "../../components/ClickLogo/ClickLogo";
+import logo from "../../assets/image/logo2.png";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import productImage from "../../assets/image/product.jpg";
 
@@ -58,7 +58,7 @@ const ProductsPreview = () => {
 
   return (
     <div className="preview-container">
-      <ClickLogo to="/products-preview" />
+      <img src={logo} alt="logo2" className="logo" />
       <div className="container">
         {productItems.map((p) => (
           <ProductCard product={p} />

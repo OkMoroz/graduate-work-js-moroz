@@ -1,5 +1,5 @@
 import "./ProductsTable.css";
-import ClickLogo from "../../components/ClickLogo/ClickLogo";
+import logo from "../../assets/image/logo2.png";
 import { BsPerson } from "react-icons/bs";
 import { PiPlusBold } from "react-icons/pi";
 import ButtonProducts from "../../components/ButtonProducts/ButtonProducts";
@@ -16,12 +16,12 @@ const ProductsTable = () => {
 
   return (
     <div className="products-container">
-      <ClickLogo to="/products-preview"/>
+      <img src={logo} alt="logo2" className="logo" />
       <div className="btn-container">
         <ButtonProducts
           icon={<BsPerson className="btn-icon" />}
           text="Preview"
-          onClick={handlePreviewClick}
+          clickAction={handlePreviewClick}
         />
 
         <ButtonProducts

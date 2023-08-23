@@ -7,7 +7,7 @@ const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
   const handlePreviewClick = () => {
-    navigate("/products-preview/:productId");
+    navigate("/products-preview/:id");
   };
 
   return (
