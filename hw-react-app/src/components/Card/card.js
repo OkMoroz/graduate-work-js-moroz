@@ -4,6 +4,8 @@ import logo from "../../assets/image/logo.png";
 import Input from "../Input/Input";
 import Toggle from "../Toggle/Toggle";
 import Button from "../Button/Button";
+import { useNavigate } from "react-router-dom";
+import { setToken } from "../localStorageService";
 
 const Card = () => {
   const [username, setUsername] = useState("");
@@ -11,6 +13,8 @@ const Card = () => {
   const [isErrorInLogin, setIsErrorInLogin] = useState(false);
   const [isErrorInPassword, setIsErrorInPassword] = useState(false);
   const [isErrorMessage, setIsErrorMessage] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -40,12 +44,16 @@ const Card = () => {
       return;
     }
 
-    if (username === "Admin" && password === "123") {
-      localStorage.setItem("jwt", "KJHJ5kmdgv236362fds3");
-      setIsErrorMessage(false);
-    } else {
-      setIsErrorMessage(true);
-    }
+    const handleLogin = () => {
+      if (username === "Admin" && password === "123") {
+        setToken("KJHJ5kmdgv236362fds3"); 
+        navigate("/products"); 
+        setIsErrorMessage(false);
+      } else {
+        setIsErrorMessage(true);
+      }
+    };
+     handleLogin();
   };
 
   return (

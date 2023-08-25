@@ -4,7 +4,7 @@ import logo from "../../assets/image/logo2.png";
 import ProductCard from "../../components/ProductsCard/ProductCard";
 import productImage from "../../assets/image/product.jpg";
 
-function ProductsPreview() {
+const ProductsPreview = () => {
   const productItems = [
     {
       id: 1,
@@ -66,6 +66,6 @@ function ProductsPreview() {
       </div>
     </div>
   );
-}
+};
 
 export default ProductsPreview;

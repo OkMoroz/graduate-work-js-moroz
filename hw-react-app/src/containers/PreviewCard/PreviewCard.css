@@ -1,0 +1,15 @@
+.preview-card-container {
+  padding: 20px 0;
+}
+.card-container {
+  background-color: #fff;
+  height: 100vh;
+}
+.card-title {
+  margin: 0 29px;
+  padding-top: 30px;
+  text-align: center;
+  font-family: Inter;
+  font-size: 32px;
+  font-weight: 500;
+}
