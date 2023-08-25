@@ -16,7 +16,9 @@ const ProductsTable = () => {
 
   return (
     <div className="products-container">
-      <img src={logo} alt="logo2" className="logo" />
+      <header>
+        <img src={logo} alt="logo2" className="logo" />
+      </header>
       <div className="btn-container">
         <ButtonProducts
           icon={<BsPerson className="btn-icon" />}

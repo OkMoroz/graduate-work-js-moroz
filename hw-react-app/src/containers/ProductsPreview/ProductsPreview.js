@@ -1,60 +1,30 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./ProductsPreview.css";
 import logo from "../../assets/image/logo2.png";
-import ProductCard from "../../components/ProductsCard/ProductCard";
-import productImage from "../../assets/image/product.jpg";
+import ProductCard from "../../components/ProductCard/ProductCard";
 
 const ProductsPreview = () => {
-  const productItems = [
-    {
-      id: 1,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-    {
-      id: 2,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-    {
-      id: 3,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-    {
-      id: 4,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-    {
-      id: 5,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-    {
-      id: 6,
-      product: productImage,
-      name: "Ноутбук Lenovo Y50-70 Aluminum Black",
-      price: "25000",
-      quantity: "Кількість: 5",
-      send: "Готовий до відправки",
-    },
-  ];
+  const [productItems, setProductItems] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const apiUrl = "https://64db4a40593f57e435b0bcab.mockapi.io/products";
+        const response = await fetch(apiUrl);
+
+        if (!response.ok) {
+          throw new Error("Network response was not ok");
+        }
+
+        const data = await response.json();
+        setProductItems(data);
+      } catch (error) {
+        console.error("Error fetching product data:", error);
+      }
+    };
+
+    fetchProducts();
+  }, []);
 
   return (
     <div className="preview-container">
