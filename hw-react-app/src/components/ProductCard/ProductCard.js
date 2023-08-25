@@ -6,9 +6,9 @@ import { useNavigate } from "react-router-dom";
 const ProductCard = ({ product }) => {
   const navigate = useNavigate();
 
- const handlePreviewClick = () => {
-  navigate(`/products-preview/${product.id}`);
-};
+  const handlePreviewClick = () => {
+    navigate(`/products-preview/${product.id}`);
+  };
 
   return (
     <div className="product-card" key={product.id} onClick={handlePreviewClick}>

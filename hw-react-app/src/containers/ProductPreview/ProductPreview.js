@@ -29,7 +29,7 @@ const ProductPreview = () => {
 
     fetchProduct();
   }, [id]);
-  
+
   const navigate = useNavigate();
 
   return (
