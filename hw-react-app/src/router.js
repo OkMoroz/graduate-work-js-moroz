@@ -4,7 +4,7 @@ import PrivateRoute from "./privateRoute";
 import Login from "./containers/Login/Login";
 import ProductsTable from "./containers/ProductsTable/ProductsTable";
 import ProductsPreview from "./containers/ProductsPreview/ProductsPreview";
-import PreviewCard from "./containers/PreviewCard/PreviewCard";
+import ProductPreview from "./containers/ProductPreview/ProductPreview";
 import { ROUTING } from "./constants/index";
 
 const AppRouter = () => (
@@ -14,7 +14,7 @@ const AppRouter = () => (
       <Route element={<PrivateRoute />}>
         <Route path={ROUTING.products} element={<ProductsTable />} />
         <Route path={ROUTING.productsPreview} element={<ProductsPreview />} />
-        <Route path={ROUTING.previewCard} element={<PreviewCard />} />
+        <Route path={ROUTING.productPreview} element={<ProductPreview />} />
       </Route>
 
       <Route path="*" element={<div>404 | Page is not found</div>} />
