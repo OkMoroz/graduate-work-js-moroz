@@ -5,6 +5,7 @@ import arrow from "../../assets/image/arrow.svg";
 import check from "../../assets/image/check.svg";
 import { Outlet, useParams, useNavigate } from "react-router-dom";
 import Loading from "../../components/Loading/Loading";
+import { API_URL } from "../../constants/index";
 
 const ProductPreview = () => {
   const { id } = useParams();
@@ -13,7 +14,7 @@ const ProductPreview = () => {
   useEffect(() => {
     const fetchProduct = async () => {
       try {
-        const apiUrl = `https://64db4a40593f57e435b0bcab.mockapi.io/products/${id}`;
+        const apiUrl = `${API_URL}/products/${id}`;
         const response = await fetch(apiUrl);
 
         if (!response.ok) {

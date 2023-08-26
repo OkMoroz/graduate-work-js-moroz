@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import "./ProductsPreview.css";
 import logo from "../../assets/image/logo2.png";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { API_URL } from "../../constants/index";
 
 const ProductsPreview = () => {
   const [productItems, setProductItems] = useState([]);
@@ -9,7 +10,7 @@ const ProductsPreview = () => {
   useEffect(() => {
     const fetchProducts = async () => {
       try {
-        const apiUrl = "https://64db4a40593f57e435b0bcab.mockapi.io/products";
+        const apiUrl = `${API_URL}/products`;
         const response = await fetch(apiUrl);
 
         if (!response.ok) {
