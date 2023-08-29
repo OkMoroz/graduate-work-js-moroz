@@ -42,8 +42,8 @@ const Table = () => {
         const apiUrl = `${API_URL}/products/${selectedProduct.id}`;
         const response = await fetch(apiUrl, { method: "DELETE" });
 
-        if (response.status === 204) {
-          fetchProducts();
+        if (response.status === 200) {
+          setisDeleted(false);
         }
       } catch (error) {
         console.error("Error while deleting product:", error);
@@ -52,7 +52,6 @@ const Table = () => {
       setSelectedProduct(null);
       setIsDeleteModalOpen(false);
     }
-    setisDeleted(false);
   };
 
   const handleDeleteCancel = () => {
