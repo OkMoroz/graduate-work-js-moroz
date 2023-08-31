@@ -1,0 +1,34 @@
+.modal-content {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content .modal-question {
+  color: #05bc52;
+  font-size: 16px;
+  font-weight: 700;
+  padding: 23px 23px 9px 22px;
+}
+
+.modal-buttons .button-cansel,
+.modal-buttons .button-delete {
+  background-color: #d8d5d5;
+  padding: 3px 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  border-radius: 0;
+  margin: 0 15px;
+}
+
+.modal-buttons .button-delete {
+  background-color: #fb0000;
+  margin-left: 5px;
+}
+
+.modal-buttons .button-cansel:hover,
+.modal-buttons .button-delete:hover {
+  background-color: #44b26f;
+}

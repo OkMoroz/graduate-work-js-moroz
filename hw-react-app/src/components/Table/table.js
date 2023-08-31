@@ -3,26 +3,61 @@ import "./Table.css";
 import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { TbArchiveFilled } from "react-icons/tb";
-
+import { API_URL } from "../../constants/index";
+import ModalDelete from "../../components/ModalDelete/ModalDelete";
 
 const Table = () => {
   const [products, setProducts] = useState([]);
- 
-   useEffect(() => {
-     fetchProducts();
-   }, []);
-  
-   const fetchProducts = async () => {
-     try {
-       const response = await fetch(
-         "https://64db4a40593f57e435b0bcab.mockapi.io/products"
-       );
-       const data = await response.json();
-       setProducts(data);
-     } catch (error) {
-       console.error("Error while fetching products:", error);
-     }
-   };
+  const [selectedProduct, setSelectedProduct] = useState(null);
+  const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
+  const [isDeleted, setisDeleted] = useState(false);
+
+  useEffect(() => {
+    if (!isDeleted) {
+      fetchProducts();
+    }
+  }, [isDeleted]);
+
+  const fetchProducts = async () => {
+    try {
+      const apiUrl = `${API_URL}/products`;
+      const response = await fetch(apiUrl);
+      const data = await response.json();
+      setProducts(data);
+    } catch (error) {
+      console.error("Error while fetching products:", error);
+    }
+    setisDeleted(true);
+  };
+
+  const handleDeleteClick = (product) => {
+    setSelectedProduct(product);
+    setIsDeleteModalOpen(true);
+  };
+
+  const handleDeleteConfirm = async (event) => {
+    event.preventDefault();
+    if (selectedProduct) {
+      try {
+        const apiUrl = `${API_URL}/products/${selectedProduct.id}`;
+        const response = await fetch(apiUrl, { method: "DELETE" });
+
+        if (response.status === 200) {
+          setisDeleted(false);
+        }
+      } catch (error) {
+        console.error("Error while deleting product:", error);
+      }
+
+      setSelectedProduct(null);
+      setIsDeleteModalOpen(false);
+    }
+  };
+
+  const handleDeleteCancel = () => {
+    setSelectedProduct(null);
+    setIsDeleteModalOpen(false);
+  };
 
   return (
     <div className="table-сontainer">
@@ -48,58 +83,66 @@ const Table = () => {
           </tr>
         </thead>
         <tbody>
-          {products.map((product) => (
+          {products.map((product, index) => (
             <tr
               key={product.id}
-              className={product.id % 2 === 0 ? "green-row" : "grey-row"}
+              className={index % 2 === 0 ? "green-row" : "grey-row"}
             >
               <td
                 className={
-                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
+                  index % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.id}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
+                  index % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.category}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
+                  index % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.name}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
+                  index % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.quantity}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "table-green-row" : "table-grey-row"
+                  index % 2 === 0 ? "table-green-row" : "table-grey-row"
                 }
               >
                 {product.price}
               </td>
               <td
                 className={
-                  product.id % 2 === 0 ? "table-grey-row" : "table-green-row"
+                  index % 2 === 0 ? "table-grey-row" : "table-green-row"
                 }
               >
                 <BsFillPencilFill className="icons" />
-                <TbArchiveFilled className="icons" />
+                <TbArchiveFilled
+                  className="icons"
+                  onClick={() => handleDeleteClick(product)}
+                />
               </td>
             </tr>
           ))}
         </tbody>
       </table>
+      <ModalDelete
+        isOpen={isDeleteModalOpen}
+        isClose={handleDeleteCancel}
+        isDelete={handleDeleteConfirm}
+      />
     </div>
   );
 };
