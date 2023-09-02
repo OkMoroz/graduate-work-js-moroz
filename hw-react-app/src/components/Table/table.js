@@ -4,19 +4,22 @@ import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
 import { TbArchiveFilled } from "react-icons/tb";
 import { API_URL } from "../../constants/index";
-import ModalDelete from "../../components/ModalDelete/ModalDelete";
+import ModalDelete from "../ModalDelete/ModalDelete";
+import ModalAddEdit from "../ModalAddEdit/ModalAddEdit";
 
 const Table = () => {
   const [products, setProducts] = useState([]);
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isDeleted, setisDeleted] = useState(false);
+  const [isAddEditModalOpen, setIsAddEditModalOpen] = useState(false);
+  const [isLoaded, setisLoaded] = useState(false);
+  const [isEdited, setIsEdited] = useState(false);
 
   useEffect(() => {
-    if (!isDeleted) {
+    if (!isLoaded) {
       fetchProducts();
     }
-  }, [isDeleted]);
+  }, [isLoaded]);
 
   const fetchProducts = async () => {
     try {
@@ -27,7 +30,7 @@ const Table = () => {
     } catch (error) {
       console.error("Error while fetching products:", error);
     }
-    setisDeleted(true);
+    setisLoaded(true);
   };
 
   const handleDeleteClick = (product) => {
@@ -43,7 +46,7 @@ const Table = () => {
         const response = await fetch(apiUrl, { method: "DELETE" });
 
         if (response.status === 200) {
-          setisDeleted(false);
+          setisLoaded(false);
         }
       } catch (error) {
         console.error("Error while deleting product:", error);
@@ -57,6 +60,18 @@ const Table = () => {
   const handleDeleteCancel = () => {
     setSelectedProduct(null);
     setIsDeleteModalOpen(false);
+  };
+
+  const handleEditProduct = (product) => {
+    setSelectedProduct(product);
+    setIsAddEditModalOpen(true);
+    setIsEdited(true);
+  };
+
+  const handleAddEditCancel = () => {
+    setSelectedProduct(null);
+    setIsAddEditModalOpen(false);
+    setIsEdited(false);
   };
 
   return (
@@ -128,7 +143,10 @@ const Table = () => {
                   index % 2 === 0 ? "table-grey-row" : "table-green-row"
                 }
               >
-                <BsFillPencilFill className="icons" />
+                <BsFillPencilFill
+                  className="icons"
+                  onClick={() => handleEditProduct(product)}
+                />
                 <TbArchiveFilled
                   className="icons"
                   onClick={() => handleDeleteClick(product)}
@@ -138,10 +156,16 @@ const Table = () => {
           ))}
         </tbody>
       </table>
+
       <ModalDelete
         isOpen={isDeleteModalOpen}
         isClose={handleDeleteCancel}
         isDelete={handleDeleteConfirm}
+      />
+      <ModalAddEdit
+        isOpen={isAddEditModalOpen}
+        isClose={handleAddEditCancel}
+        title={isEdited ? "Edit product" : "Add product"}
       />
     </div>
   );

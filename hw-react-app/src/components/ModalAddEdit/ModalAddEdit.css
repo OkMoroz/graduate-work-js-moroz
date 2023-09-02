@@ -1,0 +1,87 @@
+.dialog {
+  width: 429px;
+  height: 532px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.custom-dialog-title {
+  height: 43px;
+  padding: 10px 20px;
+}
+
+.dialog-title {
+  color: #d9d9d9;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.dialog-content {
+  background-color: #d9d9d9;
+}
+
+.dialog-content input {
+  background-color: #fff;
+  width: 360px;
+  height: 31px;
+  border: none;
+  padding: 0;
+  color: #05bc52;
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.dialog-content input:active {
+  color: #05bc52;
+}
+
+.dialog-content textarea {
+  background-color: #fff;
+  width: 361px;
+  height: 117px;
+  padding: 0px;
+  color: #05bc52;
+  font-size: 14px;
+  font-weight: 700;
+  padding-left: 15px;
+}
+
+.text-field label {
+  position: absolute;
+  top: -15%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 14px;
+  font-weight: 700;
+}
+
+.dialog-actions {
+  background-color: #d9d9d9;
+}
+
+.dialog-actions .button-cansel,
+.dialog-actions .button-submit {
+  background-color: #726969;
+  padding: 3px 30px;
+  color: #fff;
+  font-size: 16px;
+  font-weight: 700;
+  text-transform: none;
+  border-radius: 0;
+  margin: 0 15px;
+}
+
+.dialog-actions .button-submit {
+  background-color: #44b26f;
+  margin-left: 5px;
+}
+
+.dialog-actions .button-cansel:hover,
+.dialog-actions .button-submit:hover {
+  background-color: #44b26f;
+}
