@@ -20,8 +20,6 @@ const ModalDelete = ({ isOpen, isClose, isDelete }) => {
         </Button>
         <Button
           onClick={isDelete}
-          variant="contained"
-          color="secondary"
           className="button-delete"
         >
           Delete
