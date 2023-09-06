@@ -37,25 +37,28 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
-    validateField(name, value);
+    setErrors({ ...errors, [name]: "" });
   };
-
- const validateField = (name, value) => {
-   if (!value) {
-     setErrors((prevErrors) => ({
-       ...prevErrors,
-       [name]: "This field is required",
-     }));
-   } else {
-     setErrors((prevErrors) => ({ ...prevErrors, [name]: "" }));
-   }
- };
-
-
-  const isFormValid = () => {
-    return Object.values(errors).every((error) => !error);
-  };
-
+const handleSubmit = () => {
+  const newErrors = {};
+  if (!formData.category) {
+    newErrors.category = "This field is required";
+  }
+  if (!formData.name) {
+    newErrors.name = "This field is required";
+  }
+  if (!formData.quantity) {
+    newErrors.quantity = "This field is required";
+  }
+  if (!formData.price) {
+    newErrors.price = "This field is required";
+  }
+  if (Object.keys(newErrors).length > 0) {
+    setErrors(newErrors);
+  } else {
+    handleFormSubmit(formData);
+  }
+};
   return (
     <Dialog open={isOpen} onClose={isClose} className="dialog">
       <DialogTitle className="dialog-title">
@@ -83,13 +86,14 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
             value={formData.category}
             onChange={handleChange}
             margin="normal"
-            error={!!errors.category}
-            helperText={errors.category}
             required
           />
+          {errors.category && (
+            <span className="error-message">{errors.category}</span>
+          )}
 
           <TextField
-            className="text-field"
+            className={`text-field${errors.name ? " error" : ""}`}
             label="Name"
             variant="outlined"
             fullWidth
@@ -97,12 +101,12 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
             value={formData.name}
             onChange={handleChange}
             margin="normal"
-            error={!!errors.name}
-            helperText={errors.name}
             required
           />
+          {errors.name && <span className="error-message">{errors.name}</span>}
+
           <TextField
-            className="text-field"
+            className={`text-field${errors.quantity ? " error" : ""}`}
             label="Quantity"
             variant="outlined"
             fullWidth
@@ -110,12 +114,14 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
             value={formData.quantity}
             onChange={handleChange}
             margin="normal"
-            error={!!errors.quantity}
-            helperText={errors.quantity}
             required
           />
+          {errors.quantity && (
+            <span className="error-message">{errors.quantity}</span>
+          )}
+
           <TextField
-            className="text-field"
+            className={`text-field${errors.price ? " error" : ""}`}
             label="Price"
             variant="outlined"
             fullWidth
@@ -123,10 +129,12 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
             value={formData.price}
             onChange={handleChange}
             margin="normal"
-            error={!!errors.price}
-            helperText={errors.price}
             required
           />
+          {errors.price && (
+            <span className="error-message">{errors.price}</span>
+          )}
+
           <TextField
             className="description"
             label="Description"
@@ -145,11 +153,7 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
         <Button onClick={isClose} className="button-cansel">
           Cancel
         </Button>
-        <Button
-          onClick={() => handleFormSubmit(formData)}
-          className="button-submit"
-          disabled={!isFormValid()}
-        >
+        <Button onClick={handleSubmit} className="button-submit">
           Submit
         </Button>
       </DialogActions>

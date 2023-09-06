@@ -1,4 +1,3 @@
-// ProductsTable.js
 import React, { useState, useEffect } from "react";
 import "./ProductsTable.css";
 import logo from "../../assets/image/logo2.png";
@@ -33,16 +32,17 @@ const ProductsTable = () => {
     navigate("/products-preview");
   };
 
-  const handleAddProduct = (productToEdit) => {
+  const handleAddProduct = (productToAdd) => {
     setIsAddEditModalOpen(true);
-    setFormData({
-      id: productToEdit.id,
-      category: productToEdit.category,
-      name: productToEdit.name,
-      quantity: productToEdit.quantity,
-      price: productToEdit.price,
-      description: productToEdit.description,
-    });
+   setFormData({
+     id: productToAdd.id, 
+     category: productToAdd.category,
+     name: productToAdd.name,
+     quantity: productToAdd.quantity,
+     price: productToAdd.price,
+     description: productToAdd.description,
+   });
+
   };
 
   const fetchProducts = async () => {
@@ -57,29 +57,37 @@ const ProductsTable = () => {
     setIsLoaded(true);
   };
 
-  const handleFormSubmit = async (formData) => {
-    try {
-      const apiUrl = `${API_URL}/products`;
-      const method = formData.id ? "PUT" : "POST";
+const handleFormSubmit = async (formData) => {
+  try {
+    let apiUrl = `${API_URL}/products`;
+    let method = "POST";
 
-      const response = await fetch(apiUrl, {
-        method,
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify(formData),
+    const response = await fetch(apiUrl, {
+      method,
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify(formData),
+    });
+
+    if (response.status ===  201) {
+      fetchProducts();
+      setIsAddEditModalOpen(false);
+      setFormData({
+        id: "",
+        category: "",
+        name: "",
+        quantity: "",
+        price: "",
       });
-
-      if (response.status === 201 || response.status === 200) {
-        fetchProducts();
-        setIsAddEditModalOpen(false);
-      } else {
-        console.error("Failed to add/edit product:", response.statusText);
-      }
-    } catch (error) {
-      console.error("Error while adding/editing product:", error);
+    } else {
+      console.error("Failed to add/edit product:", response.statusText);
     }
-  };
+  } catch (error) {
+    console.error("Error while adding/editing product:", error);
+  }
+};
+
 
   return (
     <>

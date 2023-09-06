@@ -17,8 +17,7 @@ const Table = ({
 }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isEdited, setIsEdited] = useState(false);
-
+ const [isEditing, setIsEditing] = useState(false);
   const handleDeleteClick = (product) => {
     setSelectedProduct(product);
     setIsDeleteModalOpen(true);
@@ -48,28 +47,35 @@ const Table = ({
     setIsDeleteModalOpen(false);
   };
 
-  const handleEditProduct = (product) => {
-    setSelectedProduct(product);
-    setIsAddEditModalOpen(true);
-    setIsEdited(true);
-    setFormData({
-      id: product.id,
-      category: product.category,
-      name: product.name,
-      quantity: product.quantity,
-      price: product.price,
-      description: product.description,
-    });
-  };
+ const handleEditProduct = (product) => {
+   setSelectedProduct(product);
+   setIsAddEditModalOpen(true);
+   setIsEditing(true);
+   setFormData({
+     id: product.id,
+     category: product.category,
+     name: product.name,
+     quantity: product.quantity,
+     price: product.price,
+     description: product.description,
+   });
+ };
 
   const handleAddEditCancel = () => {
-    if (!isEdited) {
+    if (!isEditing) {
       setSelectedProduct(null);
     }
     setIsAddEditModalOpen(false);
-    setIsEdited(false);
+    setIsEditing(false);
   };
 
+const handleEditClick = (product) => {
+  if (product) {
+    handleEditProduct(product);
+  }
+};
+
+  
   return (
     <div className="table-сontainer">
       <table className="table">
@@ -141,7 +147,7 @@ const Table = ({
               >
                 <BsFillPencilFill
                   className="icons"
-                  onClick={() => handleEditProduct(product)}
+                  onClick={() => handleEditClick(product)}
                 />
                 <TbArchiveFilled
                   className="icons"
@@ -160,7 +166,7 @@ const Table = ({
       <ModalAddEdit
         isOpen={isAddEditModalOpen}
         isClose={handleAddEditCancel}
-        title={isEdited ? "Edit product" : "Add product"}
+        title={isEditing ? "Edit product" : "Add product"}
         handleFormSubmit={handleFormSubmit}
       />
     </div>
