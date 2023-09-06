@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import "./Table.css";
 import { BsArrowDownUp } from "react-icons/bs";
 import { BsFillPencilFill } from "react-icons/bs";
@@ -7,32 +7,17 @@ import { API_URL } from "../../constants/index";
 import ModalDelete from "../ModalDelete/ModalDelete";
 import ModalAddEdit from "../ModalAddEdit/ModalAddEdit";
 
-const Table = () => {
-  const [products, setProducts] = useState([]);
+const Table = ({
+  fetchProducts,
+  products,
+  setIsAddEditModalOpen,
+  isAddEditModalOpen,
+  handleFormSubmit,
+  setFormData,
+}) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isAddEditModalOpen, setIsAddEditModalOpen] = useState(false);
-  const [isLoaded, setisLoaded] = useState(false);
-  const [isEdited, setIsEdited] = useState(false);
-
-  useEffect(() => {
-    if (!isLoaded) {
-      fetchProducts();
-    }
-  }, [isLoaded]);
-
-  const fetchProducts = async () => {
-    try {
-      const apiUrl = `${API_URL}/products`;
-      const response = await fetch(apiUrl);
-      const data = await response.json();
-      setProducts(data);
-    } catch (error) {
-      console.error("Error while fetching products:", error);
-    }
-    setisLoaded(true);
-  };
-
+  const [isEditing, setIsEditing] = useState(false);
   const handleDeleteClick = (product) => {
     setSelectedProduct(product);
     setIsDeleteModalOpen(true);
@@ -46,7 +31,7 @@ const Table = () => {
         const response = await fetch(apiUrl, { method: "DELETE" });
 
         if (response.status === 200) {
-          setisLoaded(false);
+          fetchProducts();
         }
       } catch (error) {
         console.error("Error while deleting product:", error);
@@ -65,13 +50,22 @@ const Table = () => {
   const handleEditProduct = (product) => {
     setSelectedProduct(product);
     setIsAddEditModalOpen(true);
-    setIsEdited(true);
+    setIsEditing(true);
+    setFormData({product});
   };
 
   const handleAddEditCancel = () => {
-    setSelectedProduct(null);
+    if (!isEditing) {
+      setSelectedProduct(null);
+    }
     setIsAddEditModalOpen(false);
-    setIsEdited(false);
+    setIsEditing(false);
+  };
+
+  const handleEditClick = (product) => {
+    if (product) {
+      handleEditProduct(product);
+    }
   };
 
   return (
@@ -145,7 +139,7 @@ const Table = () => {
               >
                 <BsFillPencilFill
                   className="icons"
-                  onClick={() => handleEditProduct(product)}
+                  onClick={() => handleEditClick(product)}
                 />
                 <TbArchiveFilled
                   className="icons"
@@ -156,7 +150,6 @@ const Table = () => {
           ))}
         </tbody>
       </table>
-
       <ModalDelete
         isOpen={isDeleteModalOpen}
         isClose={handleDeleteCancel}
@@ -165,7 +158,8 @@ const Table = () => {
       <ModalAddEdit
         isOpen={isAddEditModalOpen}
         isClose={handleAddEditCancel}
-        title={isEdited ? "Edit product" : "Add product"}
+        title={isEditing ? "Edit product" : "Add product"}
+        handleFormSubmit={handleFormSubmit}
       />
     </div>
   );

@@ -85,3 +85,21 @@
 .dialog-actions .button-submit:hover {
   background-color: #44b26f;
 }
+
+.text-field:required:invalid::after {
+  content: "This field is required";
+  color: red;
+  font-size: 14px;
+  display: block;
+  margin-top: 4px;
+}
+
+input:required:invalid {
+  border: 1px solid red;
+}
+
+.error-message {
+  color: red;
+  font-size: 14px;
+  margin-top: 4px;
+}

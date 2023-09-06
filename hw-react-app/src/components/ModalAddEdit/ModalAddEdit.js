@@ -10,7 +10,7 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const ModalAddEdit = ({ isOpen, isClose, title }) => {
+const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
   const [formData, setFormData] = useState({
     category: "",
     name: "",
@@ -19,21 +19,46 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
     description: "",
   });
 
+  const [errors, setErrors] = useState({});
+
   useEffect(() => {
     if (!isOpen) {
-      setFormData({});
+      setFormData({
+        category: "",
+        name: "",
+        quantity: "",
+        price: "",
+        description: "",
+      });
+      setErrors({});
     }
   }, [isOpen]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
     setFormData({ ...formData, [name]: value });
+    setErrors({ ...errors, [name]: "" });
   };
-
   const handleSubmit = () => {
-    isClose();
+    const newErrors = {};
+    if (!formData.category) {
+      newErrors.category = "This field is required";
+    }
+    if (!formData.name) {
+      newErrors.name = "This field is required";
+    }
+    if (!formData.quantity) {
+      newErrors.quantity = "This field is required";
+    }
+    if (!formData.price) {
+      newErrors.price = "This field is required";
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      handleFormSubmit(formData);
+    }
   };
-
   return (
     <Dialog open={isOpen} onClose={isClose} className="dialog">
       <DialogTitle className="dialog-title">
@@ -53,7 +78,7 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
       <DialogContent className="dialog-content">
         <form>
           <TextField
-            className="text-field"
+            className={`text-field${errors.category ? " error" : ""}`}
             label="Category"
             variant="outlined"
             fullWidth
@@ -61,9 +86,14 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
             value={formData.category}
             onChange={handleChange}
             margin="normal"
+            required
           />
+          {errors.category && (
+            <span className="error-message">{errors.category}</span>
+          )}
+
           <TextField
-            className="text-field"
+            className={`text-field${errors.name ? " error" : ""}`}
             label="Name"
             variant="outlined"
             fullWidth
@@ -71,9 +101,12 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
             value={formData.name}
             onChange={handleChange}
             margin="normal"
+            required
           />
+          {errors.name && <span className="error-message">{errors.name}</span>}
+
           <TextField
-            className="text-field"
+            className={`text-field${errors.quantity ? " error" : ""}`}
             label="Quantity"
             variant="outlined"
             fullWidth
@@ -81,9 +114,14 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
             value={formData.quantity}
             onChange={handleChange}
             margin="normal"
+            required
           />
+          {errors.quantity && (
+            <span className="error-message">{errors.quantity}</span>
+          )}
+
           <TextField
-            className="text-field"
+            className={`text-field${errors.price ? " error" : ""}`}
             label="Price"
             variant="outlined"
             fullWidth
@@ -91,7 +129,12 @@ const ModalAddEdit = ({ isOpen, isClose, title }) => {
             value={formData.price}
             onChange={handleChange}
             margin="normal"
+            required
           />
+          {errors.price && (
+            <span className="error-message">{errors.price}</span>
+          )}
+
           <TextField
             className="description"
             label="Description"
