@@ -39,26 +39,26 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
     setFormData({ ...formData, [name]: value });
     setErrors({ ...errors, [name]: "" });
   };
-const handleSubmit = () => {
-  const newErrors = {};
-  if (!formData.category) {
-    newErrors.category = "This field is required";
-  }
-  if (!formData.name) {
-    newErrors.name = "This field is required";
-  }
-  if (!formData.quantity) {
-    newErrors.quantity = "This field is required";
-  }
-  if (!formData.price) {
-    newErrors.price = "This field is required";
-  }
-  if (Object.keys(newErrors).length > 0) {
-    setErrors(newErrors);
-  } else {
-    handleFormSubmit(formData);
-  }
-};
+  const handleSubmit = () => {
+    const newErrors = {};
+    if (!formData.category) {
+      newErrors.category = "This field is required";
+    }
+    if (!formData.name) {
+      newErrors.name = "This field is required";
+    }
+    if (!formData.quantity) {
+      newErrors.quantity = "This field is required";
+    }
+    if (!formData.price) {
+      newErrors.price = "This field is required";
+    }
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
+    } else {
+      handleFormSubmit(formData);
+    }
+  };
   return (
     <Dialog open={isOpen} onClose={isClose} className="dialog">
       <DialogTitle className="dialog-title">
