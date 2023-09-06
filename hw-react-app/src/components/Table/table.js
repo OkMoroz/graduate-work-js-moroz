@@ -51,14 +51,7 @@ const Table = ({
     setSelectedProduct(product);
     setIsAddEditModalOpen(true);
     setIsEditing(true);
-    setFormData({
-      id: product.id,
-      category: product.category,
-      name: product.name,
-      quantity: product.quantity,
-      price: product.price,
-      description: product.description,
-    });
+    setFormData({product});
   };
 
   const handleAddEditCancel = () => {

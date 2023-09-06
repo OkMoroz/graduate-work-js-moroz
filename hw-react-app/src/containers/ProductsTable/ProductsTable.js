@@ -34,14 +34,7 @@ const ProductsTable = () => {
 
   const handleAddProduct = (productToAdd) => {
     setIsAddEditModalOpen(true);
-    setFormData({
-      id: productToAdd.id,
-      category: productToAdd.category,
-      name: productToAdd.name,
-      quantity: productToAdd.quantity,
-      price: productToAdd.price,
-      description: productToAdd.description,
-    });
+    setFormData(productToAdd);
   };
 
   const fetchProducts = async () => {
