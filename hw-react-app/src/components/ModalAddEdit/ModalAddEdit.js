@@ -53,6 +53,9 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
     if (!formData.price) {
       newErrors.price = "This field is required";
     }
+    if (!formData.description) {
+      newErrors.description = "This field is required";
+    }
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
@@ -136,17 +139,21 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
           )}
 
           <TextField
-            className="description"
+            className={`text-field${errors.description ? " error" : ""}`}
             label="Description"
-            variant="standard"
+            variant="outlined"
             fullWidth
             multiline
-            rows={3}
+            rows={5}
             name="description"
             value={formData.description}
             onChange={handleChange}
             margin="normal"
+            required
           />
+          {errors.description && (
+            <span className="error-message">{errors.description}</span>
+          )}
         </form>
       </DialogContent>
       <DialogActions className="dialog-actions">

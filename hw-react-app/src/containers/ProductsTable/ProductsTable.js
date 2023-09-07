@@ -71,6 +71,7 @@ const ProductsTable = () => {
           name: "",
           quantity: "",
           price: "",
+          description: "",
         });
       } else {
         console.error("Failed to add/edit product:", response.statusText);
