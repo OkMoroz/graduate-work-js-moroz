@@ -14,10 +14,11 @@ const Table = ({
   isAddEditModalOpen,
   handleFormSubmit,
   setFormData,
+  isEditing,
+  setIsEditing,
 }) => {
   const [selectedProduct, setSelectedProduct] = useState(null);
   const [isDeleteModalOpen, setIsDeleteModalOpen] = useState(false);
-  const [isEditing, setIsEditing] = useState(false);
   const handleDeleteClick = (product) => {
     setSelectedProduct(product);
     setIsDeleteModalOpen(true);
@@ -51,7 +52,7 @@ const Table = ({
     setSelectedProduct(product);
     setIsAddEditModalOpen(true);
     setIsEditing(true);
-    setFormData({product});
+    setFormData({ ...product });
   };
 
   const handleAddEditCancel = () => {
@@ -60,6 +61,13 @@ const Table = ({
     }
     setIsAddEditModalOpen(false);
     setIsEditing(false);
+    setFormData({
+      category: "",
+      name: "",
+      quantity: "",
+      price: "",
+      description: "",
+    });
   };
 
   const handleEditClick = (product) => {
@@ -67,6 +75,16 @@ const Table = ({
       handleEditProduct(product);
     }
   };
+
+  const initialFormData = selectedProduct
+    ? { ...selectedProduct }
+    : {
+        category: "",
+        name: "",
+        quantity: "",
+        price: "",
+        description: "",
+      };
 
   return (
     <div className="table-сontainer">
@@ -160,6 +178,8 @@ const Table = ({
         isClose={handleAddEditCancel}
         title={isEditing ? "Edit product" : "Add product"}
         handleFormSubmit={handleFormSubmit}
+        selectedProduct={selectedProduct}
+        initialFormData={initialFormData}
       />
     </div>
   );

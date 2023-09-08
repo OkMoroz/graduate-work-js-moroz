@@ -14,6 +14,7 @@ const ProductsTable = () => {
   const [products, setProducts] = useState([]);
   const [isAddEditModalOpen, setIsAddEditModalOpen] = useState(false);
   const [isLoaded, setIsLoaded] = useState(false);
+  const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
     category: "",
     name: "",
@@ -49,30 +50,43 @@ const ProductsTable = () => {
     setIsLoaded(true);
   };
 
-  const handleFormSubmit = async (formData) => {
+  const handleFormSubmit = async (formData, isEditing) => {
     try {
-      let apiUrl = `${API_URL}/products`;
-      let method = "POST";
+      let apiUrl, method;
+      if (isEditing) {
+        apiUrl = `${API_URL}/products/${formData.id}`;
+        method = "PUT";
+      } else {
+        apiUrl = `${API_URL}/products`;
+        method = "POST";
+      }
+      const cleanFormData = {
+        category: formData.category,
+        name: formData.name,
+        quantity: formData.quantity,
+        price: formData.price,
+        description: formData.description,
+      };
 
       const response = await fetch(apiUrl, {
         method,
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify(cleanFormData),
       });
 
-      if (response.status === 201) {
+      if (response.status === 200 || response.status === 201) {
         fetchProducts();
         setIsAddEditModalOpen(false);
         setFormData({
-          id: "",
           category: "",
           name: "",
           quantity: "",
           price: "",
           description: "",
         });
+        setIsEditing(true);
       } else {
         console.error("Failed to add/edit product:", response.statusText);
       }
@@ -107,6 +121,9 @@ const ProductsTable = () => {
           isAddEditModalOpen={isAddEditModalOpen}
           handleFormSubmit={handleFormSubmit}
           setFormData={setFormData}
+          formData={formData}
+          isEditing={isEditing}
+          setIsEditing={setIsEditing}
         />
       </div>
       <ModalAddEdit
@@ -115,6 +132,8 @@ const ProductsTable = () => {
         title={formData.id ? "Edit product" : "Add product"}
         initialFormData={formData}
         handleFormSubmit={handleFormSubmit}
+        isEditing={formData.id ? true : false}
+        isEdit={isEditing}
       />
     </>
   );

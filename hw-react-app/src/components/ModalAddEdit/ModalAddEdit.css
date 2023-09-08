@@ -25,7 +25,7 @@
 
 .dialog-content input {
   background-color: #fff;
-  width: 361px;
+  width: 360px;
   height: 31px;
   border: none;
   padding: 0;
@@ -41,8 +41,8 @@
 
 .dialog-content textarea {
   background-color: #fff;
-  width: 361px;
-  height: 69px;
+  width: 333px;
+  height: 84px;
   padding: 0px;
   color: #05bc52;
   font-size: 14px;

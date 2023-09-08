@@ -10,14 +10,23 @@ import {
 } from "@mui/material";
 import CloseIcon from "@mui/icons-material/Close";
 
-const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
-  const [formData, setFormData] = useState({
-    category: "",
-    name: "",
-    quantity: "",
-    price: "",
-    description: "",
-  });
+const ModalAddEdit = ({
+  isOpen,
+  isClose,
+  handleFormSubmit,
+  isEditing,
+  initialFormData,
+  selectedProduct,
+}) => {
+  const [formData, setFormData] = useState(
+    initialFormData || {
+      category: "",
+      name: "",
+      quantity: "",
+      price: "",
+      description: "",
+    }
+  );
 
   const [errors, setErrors] = useState({});
 
@@ -33,6 +42,14 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
       setErrors({});
     }
   }, [isOpen]);
+
+  useEffect(() => {
+    if (selectedProduct) {
+      setFormData(selectedProduct);
+    } else {
+      setFormData(initialFormData);
+    }
+  }, [selectedProduct, initialFormData]);
 
   const handleChange = (event) => {
     const { name, value } = event.target;
@@ -59,13 +76,14 @@ const ModalAddEdit = ({ isOpen, isClose, title, handleFormSubmit }) => {
     if (Object.keys(newErrors).length > 0) {
       setErrors(newErrors);
     } else {
-      handleFormSubmit(formData);
+      handleFormSubmit(formData, isEditing);
     }
   };
+
   return (
     <Dialog open={isOpen} onClose={isClose} className="dialog">
       <DialogTitle className="dialog-title">
-        {title}
+        {isEditing ? "Edit Product" : "Add Product"}
         <CloseIcon
           onClick={isClose}
           style={{
