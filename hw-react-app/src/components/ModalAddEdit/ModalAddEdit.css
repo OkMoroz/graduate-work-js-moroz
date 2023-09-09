@@ -41,8 +41,8 @@
 
 .dialog-content textarea {
   background-color: #fff;
-  width: 361px;
-  height: 117px;
+  width: 333px;
+  height: 84px;
   padding: 0px;
   color: #05bc52;
   font-size: 14px;
@@ -94,7 +94,8 @@
   margin-top: 4px;
 }
 
-input:required:invalid {
+input:required:invalid,
+textarea:required:invalid {
   border: 1px solid red;
 }
 

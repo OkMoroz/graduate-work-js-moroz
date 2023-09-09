@@ -79,28 +79,19 @@ const ProductPreview = () => {
             </div>
             <div className="product-description">
               <h3 className="product-description-subtitle">
-                15.6-дюймовий дисплей стандарту
+                {product.description.headerFirstP}
               </h3>
-              <p className="description">
-                Full HD Фільми, малюнки та ігри немов оживають на дисплеї
-                стандарту Full HD (1920 x 1080).
-              </p>
+              <p className="description">{product.description.firstP}</p>
+
               <h3 className="product-description-subtitle">
-                Динаміки преміум-класу
+                {product.description.headerSecondP}
               </h3>
-              <p className="description">
-                Стереофонічні динаміки JBL, що забезпечують розкішне звучання з
-                ефектом присутності, ідеально підходять для відео, ігор і
-                музики.
-              </p>
+              <p className="description">{product.description.secondP}</p>
+
               <h3 className="product-description-subtitle">
-                Dolby Advanced Audio
+                {product.description.headerThirdP}
               </h3>
-              <p className="description">
-                Dolby Advanced Audio — це технологія, завдяки якій на ноутбуці
-                можна відтворити кришталево чіткий просторовий звук за допомогою
-                вбудованих динаміків.
-              </p>
+              <p className="description">{product.description.thirdP}</p>
             </div>
           </div>
         </div>
