@@ -66,3 +66,52 @@
   color: #000;
   margin-left: 10px;
 }
+
+@media (max-width: 767.98px) {
+  .table-name {
+    font-size: 12px;
+    padding: 3px 15px;
+  }
+
+  .arrow-icon {
+    width: 8px;
+    height: 10px;
+    margin-left: 3px;
+  }
+
+  .table-grey-row,
+  .table-green-row {
+    font-size: 12px;
+    padding: 3px 15px;
+  }
+
+  .icons {
+    width: 15px;
+    height: 15px;
+    margin-left: 8px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .table-name {
+    font-size: 8px;
+    padding: 2px 10px;
+  }
+
+  .arrow-icon {
+    width: 4px;
+    height: 5px;
+    margin-left: 2px;
+  }
+
+  .table-grey-row,
+  .table-green-row {
+    font-size: 8px;
+    padding: 2px 10px;
+  }
+  .icons {
+    width: 10px;
+    height: 10px;
+    margin-left: 5px;
+  }
+}

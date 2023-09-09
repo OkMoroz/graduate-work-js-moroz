@@ -13,15 +13,36 @@
   padding: 0 15px;
 }
 
+.btn-arow-table {
+  margin-top: 20px;
+  margin-left: 65px;
+  background-color: #ffffff03;
+  border: none;
+}
+
 @media (max-width: 767.98px) {
+  .preview-container {
+    padding: 15px 0;
+  }
+
   .container {
+    width: 920px;
+    margin: 35px auto;
     gap: 31px;
     grid-template-columns: repeat(2, 1fr);
+    justify-content: space-between;
+    justify-items: center;
   }
 }
 
 @media (max-width: 479.98px) {
+  .preview-container {
+    padding: 15px 0;
+  }
+
   .container {
+    width: 550px;
+    margin: 15px auto;
     gap: 15px;
     grid-template-columns: repeat(1, 1fr);
   }

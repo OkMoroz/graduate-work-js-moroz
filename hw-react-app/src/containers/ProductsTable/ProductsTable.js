@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import "./ProductsTable.css";
-import logo from "../../assets/image/logo2.png";
+import Logo from "../../components/Logo/Logo"; 
 import { BsPerson } from "react-icons/bs";
 import { PiPlusBold } from "react-icons/pi";
 import ButtonProducts from "../../components/ButtonProducts/ButtonProducts";
@@ -99,7 +99,7 @@ const ProductsTable = () => {
     <>
       <div className="products-container">
         <header>
-          <img src={logo} alt="logo2" className="logo" />
+          <Logo />
         </header>
         <div className="btn-container">
           <ButtonProducts

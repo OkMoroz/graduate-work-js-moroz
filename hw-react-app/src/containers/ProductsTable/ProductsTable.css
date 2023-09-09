@@ -31,3 +31,23 @@
   font-weight: 700;
   text-align: center;
 }
+
+@media (max-width: 767.98px) {
+  .btn-container {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .logo {
+    width: 180px;
+    height: 30px;
+    margin: 10px auto;
+    display: block;
+  }
+
+  .title {
+    font-size: 38px;
+  }
+}

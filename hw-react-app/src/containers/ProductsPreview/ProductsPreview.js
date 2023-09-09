@@ -1,7 +1,10 @@
 import React, { useEffect, useState } from "react";
 import "./ProductsPreview.css";
-import logo from "../../assets/image/logo2.png";
+import Logo from "../../components/Logo/Logo"; 
+import arrow from "../../assets/image/arrow.svg";
 import ProductCard from "../../components/ProductCard/ProductCard";
+import { useNavigate } from "react-router-dom";
+
 import { API_URL } from "../../constants/index";
 
 const ProductsPreview = () => {
@@ -26,14 +29,23 @@ const ProductsPreview = () => {
 
     fetchProducts();
   }, []);
-
+  const navigate = useNavigate();
   return (
     <div className="preview-container">
-      <img src={logo} alt="logo2" className="logo" />
-      <div className="container">
-        {productItems.map((p) => (
-          <ProductCard product={p} />
-        ))}
+      <Logo />
+      <div>
+        <button
+          className="btn-arow-table"
+          type="submit"
+          onClick={() => navigate(-1)}
+        >
+          <img src={arrow} alt="arrow"></img>
+        </button>
+        <div className="container">
+          {productItems.map((p) => (
+            <ProductCard product={p} />
+          ))}
+        </div>{" "}
       </div>
     </div>
   );

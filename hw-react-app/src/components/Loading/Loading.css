@@ -3,12 +3,12 @@
   justify-content: center;
   align-items: center;
   height: 100vh;
-  background-color: rgba(251, 245, 245, 0.585); 
+  background-color: rgba(251, 245, 245, 0.585);
 }
 
 .loading-spinner {
-  border: 6px solid transparent; 
-  border-top: 6px solid #ec316f; 
+  border: 6px solid transparent;
+  border-top: 6px solid #ec316f;
   border-radius: 50%;
   width: 150px;
   height: 150px;
@@ -16,6 +16,10 @@
 }
 
 @keyframes spin {
-  0% { transform: rotate(0deg); }
-  100% { transform: rotate(360deg); }
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }

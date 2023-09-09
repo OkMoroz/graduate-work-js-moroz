@@ -1,12 +1,18 @@
 .preview-card-container {
-  padding-top: 20px;
+  background-color: #fff;
   font-family: Inter, sans-serif;
   font-size: 24px;
   font-weight: 500;
+  padding: 24px;
+}
+
+.header-preview {
+  background-color: #44b26f;
+  padding-top: 20px;
 }
 
 .card-container {
-  padding: 21px 0 0 69px;
+  padding-left: 69px;
   background-color: #fff;
 }
 
@@ -32,6 +38,7 @@
 
 .details {
   flex-direction: column;
+  margin-left: 45px;
 }
 
 .product-details {
@@ -44,8 +51,6 @@
 .product-image {
   width: 396px;
   height: 268px;
-  margin-right: 45px;
-  margin-bottom: 44px;
 }
 
 .product-image:hover {
@@ -103,8 +108,9 @@
 }
 
 .product-description {
-  width: 1222px;
-  height: 338px;
+  max-width: 1222px;
+  height: auto;
+  width: 100%;
 }
 
 .product-description-subtitle {
@@ -116,5 +122,99 @@
   font-weight: 400;
   margin: 0 0 20px 0;
 }
+@media (max-width: 767.98px) {
+  .preview-card-container {
+    padding: 14px;
+    font-size: 20px;
+  }
+  .card-container {
+    padding-left: 33px;
+  }
+  .product-image {
+    width: 316px;
+    height: 188px;
+  }
+  .card-title {
+    font-size: 24px;
+    margin-top: 18px;
+  }
 
+  .check-image {
+    font-size: 22px;
+    margin: 4px;
+  }
 
+  .product-price {
+    font-size: 26px;
+    margin-top: 15px;
+    margin-bottom: 15px;
+  }
+
+  .product-quantity {
+    font-size: 18px;
+  }
+}
+
+@media (max-width: 479.98px) {
+  .card-container {
+    padding-left: 15px;
+  }
+
+  .card-title {
+    font-size: 22px;
+    margin-top: 15px;
+  }
+
+  .product-name {
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 15px;
+  }
+
+  .btn-arow {
+    margin-right: 40px;
+    margin-left: -15px;
+  }
+
+  .product-image {
+    width: 238px;
+    height: 178px;
+    margin-bottom: 22px;
+  }
+  .details {
+    margin-left: 0;
+  }
+  .product-details {
+    margin-left: 0;
+  }
+
+  .product-info {
+    flex-direction: column;
+  }
+
+  .wrap {
+    flex-direction: column;
+    margin: 10px 0;
+  }
+
+  .wrapper {
+    font-size: 22px;
+    margin-left: 10px;
+  }
+
+  .card-title-wrap {
+    color: #d9d9d9;
+    font-size: 22px;
+    margin-left: 15px;
+  }
+
+  .product-description-subtitle {
+    font-size: 18px;
+  }
+
+  .description {
+    font-size: 12px;
+    margin: 0 0 10px 0;
+  }
+}
