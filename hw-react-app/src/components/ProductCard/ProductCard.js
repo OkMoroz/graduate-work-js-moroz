@@ -19,11 +19,11 @@ const ProductCard = ({ product }) => {
           {product.price}
           <span className="ua">₴</span>
         </span>
-        <span className="quantity">Кількість: {product.quantity}</span>
+        <span className="quantity">Quantity: {product.quantity}</span>
       </div>
       <div className="buy">
         <img src={cart} alt="cart" className="cart-product-img" />
-        <span className="send">Готовий до відправки</span>
+        <span className="send">Ready for shipment.</span>
       </div>
     </div>
   );

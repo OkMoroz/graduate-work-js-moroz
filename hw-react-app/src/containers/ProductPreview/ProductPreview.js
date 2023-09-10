@@ -61,7 +61,7 @@ const ProductPreview = () => {
                 <div className="details flex">
                   <div className="check flex">
                     <img src={check} alt="Check"></img>
-                    <span className="check-image">Є в наявності</span>
+                    <span className="check-image">In stock.</span>
                   </div>
                   <div className="product-details flex">
                     <p className="product-price">
@@ -69,13 +69,13 @@ const ProductPreview = () => {
                       <span className="ua-preview">₴</span>
                     </p>
                     <p className="product-quantity">
-                      Кількість: {product.quantity}
+                      Quantity: {product.quantity}
                     </p>
                   </div>
                 </div>
               </div>
               <div className="wrap flex">
-                <span className="wrapper">Опис</span>
+                <span className="wrapper">Description</span>
                 <h2 className="card-title-wrap">{product.name}</h2>
               </div>
               <div className="product-description">
