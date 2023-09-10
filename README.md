@@ -1,46 +1,57 @@
-# graduate-work-js-moroz
-Дизайн
 
-https://www.figma.com/file/zL1Fipv9zA7FGLacFwnjaV/Rozetka-Admin-Panel?node-id=0%3A1&t=h1J3iZdKIgyYFVJN-0
+# Rozetka Admin Panel Design
 
-User Stories
+Welcome to the Rozetka Admin Panel project! 
 
-Login page
-Відправка запиту на токен, отримання токену, зберігання токену (frontend + backend) або процес логінації чисто на стороні frontend (робите перевірку в компоненті + зберігаєте токен у localStorage)
+## Design
 
-логотип ока, яке буде показувати та приховувати пароль (при кліку показуєтьcя пароль та іконка змінюється на перекреслене око)
+You can access the project design [here](https://www.figma.com/file/zL1Fipv9zA7FGLacFwnjaV/Rozetka-Admin-Panel?node-id=0%3A1&t=h1J3iZdKIgyYFVJN-0).
 
-Products Table
 
-Отримати список продуктів і замапити на UI ( таблиця )
+### Login Page
+- Send a token request, receive a token, and store it (frontend + backend), or handle the entire login process on the frontend (check in the component + store the token in localStorage).
+- Eye icon to show and hide the password (clicking reveals the password, and the icon changes to a crossed-out eye).
 
-Preview button - перекидає на Preview page
+### Products Table
+- Retrieve a list of products and display it in a table.
+- "Preview" button - redirects to the preview page.
 
-Add product
+### Adding a Product
+- Open a modal window similar to "Edit Product" (but with all fields empty). After adding a product, the table should update.
+- The modal window should open in the center of the page, and the entire page should have reduced opacity (you can add a shadow to the modal window).
 
-Відкриття модалки як "Edit Product" (але усі поля пусті), після додавання таблиця оновлюється
+### Editing/Deleting a Product
+- Icons for "Edit" and "Delete" open modal windows for editing and deleting, respectively, for the corresponding row.
 
-Модальне вікно має відкриватись по середині сторінки, уся сторінка має отримати opacity (можна додати тінь модальному вікну).
+### Product Preview
+- Display product blocks (cards) from the table (Products table page).
+- Show information from a new product request.
+- Clicking on a card redirects to a page with a specific product, where the same information plus a description will be displayed.
 
-Edit/Delete іконки відкривають модальні вікна Edit та Delete відповідно строки в якій викликаються
+## Additional Requirements
 
-Product preview
+- Store all code in this repository.
+- Submit each individual task or user story as a separate pull request (PR).
+- Retrieve data from your express.js server or mock API.
 
-Блоки (карточки) з продуктами з таблиці (сторінка Products table)
+## Additional Information
 
-Відображається інформація з нового запита продуктів
+- Font: Inter
 
-При кліку по карточці йде перехід на сторінку з конкретним продуктом, де буде те саме + description
+## Getting Started
 
-Додаткові requirements (вимоги)
+In the project directory, you can run:
 
-Зробити у своєму репозиторії
+### `npm start`
 
-Кожна окрема задача або user story в окремому ПР (pull request)
+This command launches the app in development mode.\
+Open [http://localhost:3000](http://localhost:3000) in your browser to view the app.
 
-Дані діставати зі свого серверу express.js або mock-api
-Сортування полей у Products table - optional
-Карусель картинок на сторінці з конкретним продуктом - optional
-Додаткова інформація:
+The page will automatically reload when you make changes.
 
-Шрифт - Inter
+## Default Login Credentials
+
+- **Login:** Admin
+- **Password:** 123
+
+
