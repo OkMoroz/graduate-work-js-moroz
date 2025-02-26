@@ -1,5 +1,5 @@
 import React from "react";
-import "./Input.css";
+import "./input.css";
 
 const Input = ({ type, placeholder, value, name, onChange, isError }) => {
   const inputClassName = isError ? "input error" : "input";

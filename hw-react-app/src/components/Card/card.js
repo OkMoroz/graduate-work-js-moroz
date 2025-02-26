@@ -1,9 +1,9 @@
 import React, { useState } from "react";
-import "./Card.css";
+import "./card.css";
 import logo from "../../assets/image/logo.png";
-import Input from "../Input/Input";
+import Input from "../Input/input";
 import Toggle from "../Toggle/Toggle";
-import Button from "../Button/Button";
+import Button from "../Button/button";
 import { useNavigate } from "react-router-dom";
 import { setToken } from "../localStorageService";
 
@@ -62,11 +62,12 @@ const Card = () => {
       <label>
         <Input
           type="text"
-          placeholder="User Name"
+          placeholder="Демо логін: Admin"
           value={username}
           name="username"
           onChange={handleChange}
           isError={isErrorInLogin}
+          title="Демо логін: Admin"
         />
 
         {isErrorInLogin && (

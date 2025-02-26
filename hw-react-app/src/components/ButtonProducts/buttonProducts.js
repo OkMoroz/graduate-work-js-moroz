@@ -1,5 +1,5 @@
 import React from "react";
-import "./ButtonProducts.css";
+import "./buttonProducts.css";
 
 const ButtonProducts = ({ icon, text, clickAction }) => {
   return (

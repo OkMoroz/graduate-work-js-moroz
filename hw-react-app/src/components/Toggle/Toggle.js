@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import Input from "../Input/Input";
+import Input from "../Input/input";
 import { IoMdEye, IoMdEyeOff } from "react-icons/io";
 
 const Toggle = ({ password, handleChange, isErrorInPassword }) => {
@@ -13,27 +13,28 @@ const Toggle = ({ password, handleChange, isErrorInPassword }) => {
     <div className="password-input">
       <Input
         type={showPassword ? "text" : "password"}
-        placeholder="Password"
+        placeholder="Демо пароль: 123"
         className="password-field"
         value={password}
         name="password"
         onChange={handleChange}
         isError={isErrorInPassword}
+        title="Демо пароль: 123"
       />
       {isErrorInPassword && (
         <div className="error-message">Please enter password</div>
       )}
       <div className="eye-icon">
         {showPassword ? (
-          <IoMdEyeOff
-            onClick={togglePasswordVisibility}
-            className="eye-icon-closed"
-          />
+            <IoMdEye
+                onClick={togglePasswordVisibility}
+                className="eye-icon-open"
+            />
         ) : (
-          <IoMdEye
+            <IoMdEyeOff
             onClick={togglePasswordVisibility}
-            className="eye-icon-open"
-          />
+          className="eye-icon-closed"
+      />
         )}
       </div>
     </div>

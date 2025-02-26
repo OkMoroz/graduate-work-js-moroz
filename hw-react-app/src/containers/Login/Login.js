@@ -1,6 +1,6 @@
 import React from "react";
 import "./Login.css";
-import Card from "../../components/Card/Card";
+import Card from "../../components/Card/card";
 
 const Login = () => {
   return (
