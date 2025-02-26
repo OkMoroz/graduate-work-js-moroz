@@ -1,5 +1,6 @@
 {
   "name": "hw-react-app",
+  "author": " Oksana Moroz",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
@@ -26,6 +27,7 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject"
   },
+  "homepage": "https://OkMoroz.netlify.app",
   "eslintConfig": {
     "extends": [
       "react-app",
